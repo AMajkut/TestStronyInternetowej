@@ -1,13 +1,17 @@
 package Common;
 
+import org.junit.After;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class Utils {
 
+    public WebDriver driver;
+
+    @Before
     public static WebDriver setUpDriver() {
         System.setProperty("webdriver.gecko.driver",
                 "src/main/resources/drivers/geckodriver.exe");
@@ -18,10 +22,9 @@ public class Utils {
         return driver;
     }
 
-  /*  public static String generateEmail() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(10000);
-        return "test" + randomNumber + "mail.com";
-    }*/
+    @After
+    public void close() {
+        driver.quit();
+    }
 
 }
