@@ -91,10 +91,8 @@ public class ProductPage {
     }
 
     public void choiceQuantity(String quantity) {
-        new Actions(driver).click(productQuantity)
-                .pause(200).keyDown( Keys.CONTROL).sendKeys("M").keyUp(Keys.CONTROL)
-                .pause(200).sendKeys(Keys.BACK_SPACE)
-                .pause(200).sendKeys(quantity).perform();
+        productQuantity.clear();
+        productQuantity.sendKeys("5");
     }
 
     public void addToCart() {
