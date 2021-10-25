@@ -5,13 +5,13 @@ Feature: product purchase
    When user logs in with "<email>" and "<password>"
    And user writes "<productName>" on search bar
    When user picks "<productName>" product
-   When user chooses size M
-   When user chooses 5 pices of "<productName>"
-   And user checks if product is 20% cheaper
+   When user chooses "<size>"
+   When user chooses "<quantity>" pices of product
+#   And user checks if product price is reduced by 20%
    And user clicks Add to cart button
    And user clicks Proceed to checkout button
    And user clicks Proceed to checkout button again
-   When user checks if address is correct
+   When user confirms the address
    And user chooses Shiping method as pick up in store
    And user chooses Payment as Pay by Check
    When user clicks on therms of service checkbox
@@ -20,5 +20,5 @@ Feature: product purchase
 
 
   Examples:
-    |email                        |password   |productName                |
-    |telire8916@specialistblog.com|password123|Hummingbird Printed Sweater|
+    |email                        |password   |productName                |size|quantity|
+    |telire8916@specialistblog.com|password123|Hummingbird Printed Sweater|M   |5       |
