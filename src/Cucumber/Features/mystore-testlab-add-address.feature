@@ -9,5 +9,5 @@ Feature: add new user address
     Then "Address successfully added!" is displayed
 
     Examples:
-    |email                        |password   |alias|address  |zipCode |city   |country        |phone|
-    |telire8916@specialistblog.com|password123|Home |Długa 12 |12-345  |Londyn |United Kingdom |123456789|
+    |email                        |password   |alias|address            |zipCode  |city   |country        |phone|
+    |telire8916@specialistblog.com|password123|Home |221b Baker Street  |NW1 6XE  |Londyn |United Kingdom |123456789|

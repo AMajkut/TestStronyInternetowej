@@ -7,12 +7,12 @@ Feature: product purchase
    When user picks "<productName>" product
    When user chooses "<size>"
    When user chooses "<quantity>" pices of product
-#   And user checks if product price is reduced by 20%
+   And user checks if product price is reduced by 20%
    And user clicks Add to cart button
    And user clicks Proceed to checkout button
    And user clicks Proceed to checkout button again
    When user confirms the address
-   And user chooses Shiping method as pick up in store
+   And user chooses Shipping method as pick up in store
    And user chooses Payment as Pay by Check
    When user clicks on therms of service checkbox
    And user clicks Order with an obligation to pay button
