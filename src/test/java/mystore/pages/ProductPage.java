@@ -1,12 +1,10 @@
 package mystore.pages;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.interactions.Actions;
 
 public class ProductPage {
 
@@ -43,7 +41,7 @@ public class ProductPage {
     private WebElement pickUpInStoreButton;
 
     @FindBy(xpath = "//button[@class='continue btn btn-primary float-xs-right'][@name='confirmDeliveryOption']")
-    private WebElement confirmShipingMethodButton;
+    private WebElement confirmShippingMethodButton;
 
     @FindBy(id = "payment-option-1")
     private WebElement payByCheckButton;
@@ -90,7 +88,8 @@ public class ProductPage {
         }
     }
 
-    public void choiceQuantity(String quantity) {
+    public void choiceQuantity(String quantity) throws InterruptedException {
+        Thread.sleep(2000);
         productQuantity.clear();
         productQuantity.sendKeys("5");
     }
@@ -124,7 +123,7 @@ public class ProductPage {
     }
 
     public void confirmShipingMethod() {
-        confirmShipingMethodButton.click();
+        confirmShippingMethodButton.click();
     }
 
     public void choicePayment() {
