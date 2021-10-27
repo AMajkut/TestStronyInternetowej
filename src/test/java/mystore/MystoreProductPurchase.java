@@ -115,5 +115,9 @@ public class MystoreProductPurchase {
     public void userTakeScreenshot() {
         Screenshot screenshot = new Screenshot();
         screenshot.captureScreenshot(driver);
+
+        HeaderSection headerSection = new HeaderSection(driver);
+        headerSection.signOut();
+        driver.close();
     }
 }

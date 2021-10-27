@@ -53,6 +53,10 @@ public class MystoreNewAddress {
     public void addressSuccessfullyAddedIsDisplayed(String message) {
         AssertNewAddressPage assertNewAddressPage = new AssertNewAddressPage(driver);
         Assertions.assertEquals(message, assertNewAddressPage.getAssertNewAddress());
+
+        HeaderSection headerSection = new HeaderSection(driver);
+        headerSection.signOut();
+        driver.close();
     }
 
 }
