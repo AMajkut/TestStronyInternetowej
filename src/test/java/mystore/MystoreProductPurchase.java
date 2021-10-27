@@ -6,6 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import mystore.pages.AssertProductPage;
 import mystore.pages.LoginPage;
 import mystore.pages.ProductPage;
 import mystore.sections.HeaderSection;
@@ -48,15 +49,17 @@ public class MystoreProductPurchase {
     }
 
     @When("user chooses {string} pices of product")
-    public void userChoosesQuantityPicesOfProduct(String quantity) {
+    public void userChoosesQuantityPicesOfProduct(String quantity) throws InterruptedException {
         ProductPage productPage = new ProductPage(driver);
         productPage.choiceQuantity(quantity);
     }
 
-//    @And("user checks if product price is reduced by 20%")
-//    public void userChecksIfProductIsReduced() {
-//
-//    }
+    @And("user checks if product price is reduced by 20%")
+    public void userChecksIfProductIsReduced() {
+        AssertProductPage assertProductPage = new AssertProductPage(driver);
+        assertProductPage.isProductPriceReduced();
+//        Assert.assertTrue(assertProductPage.isProductPriceReduced());
+    }
 
     @And("user clicks Add to cart button")
     public void userClicksAddToCartButton() {
@@ -83,8 +86,8 @@ public class MystoreProductPurchase {
         productPage.goToShipingMethod();
     }
 
-    @And("user chooses Shiping method as pick up in store")
-    public void userChoosesShipingMethod() {
+    @And("user chooses Shipping method as pick up in store")
+    public void userChoosesShippingMethod() {
         ProductPage productPage = new ProductPage(driver);
         productPage.choiceDelivery();
         productPage.confirmShipingMethod();
