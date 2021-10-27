@@ -1,7 +1,8 @@
 package Common;
 
-import org.junit.After;
-import org.junit.Before;
+import mystore.sections.HeaderSection;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,7 +13,7 @@ public class Utils {
 
     public WebDriver driver;
 
-    @Before
+    @BeforeEach
     public static WebDriver setUpDriver() {
         System.setProperty("webdriver.gecko.driver",
                 "src/main/resources/drivers/geckodriver.exe");
@@ -23,6 +24,7 @@ public class Utils {
         return driver;
     }
 
+    @BeforeEach
     public static WebDriver setUpChromeDriver() {
         System.setProperty("webdriver.chrome.driver",
                 "src/main/resources/drivers/chromedriver.exe");
@@ -33,9 +35,9 @@ public class Utils {
         return driver;
     }
 
-    @After
-    public void close() {
-//        driver.quit();
+    @AfterEach
+    public void tearDown() {
+        driver.quit();
     }
 
 }
